@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('ava.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #f7f6f6;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .staggered-text {
+            display: inline-block;
+            transform: translateX(20px);
+            opacity: 0;
+            animation: slideIn 0.5s forwards;
+        }
+        .staggered-text:nth-child(2) { animation-delay: 0.2s; }
+        .staggered-text:nth-child(3) { animation-delay: 0.4s; }
+        .staggered-text:nth-child(4) { animation-delay: 0.6s; }
+        @keyframes slideIn {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .project-card {
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+        #about {
+            background-image: url('chip4k.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        #about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.192);
+            backdrop-filter: blur(5px);
+            z-index: 1;
+        }
+        #about .container {
+            position: relative;
+            z-index: 2;
+        }
+        .bubble {
+            display: inline-block;
+            opacity: 0;
+            transform: scale(0.5) translateY(50px);
+            animation: bubbleUp 0.6s ease-out forwards;
+        }
+        .bubble:nth-child(2) { animation-delay: 0.1s; }
+        .bubble:nth-child(3) { animation-delay: 0.2s; }
+        .bubble:nth-child(4) { animation-delay: 0.3s; }
+        .bubble:nth-child(5) { animation-delay: 0.4s; }
+        @keyframes bubbleUp {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) translateY(50px);
+            }
+            80% {
+                transform: scale(1.1) translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        .skills-container {
+            display: none;
+        }
+        .skills-container.active {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="fixed top-0 w-full bg-white shadow-md z-10">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Portfolio</h1>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="hover:text-indigo-600">Giới thiệu</a></li>
+                <li><a href="#projects" class="hover:text-indigo-600">Dự án</a></li>
+                <li><a href="#skills" class="hover:text-indigo-600">Kỹ năng</a></li>
+                <li><a href="#contact" class="hover:text-indigo-600">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center">
+        <div class="container mx-auto px-6">
+            <div class="max-w-lg">
+                <h1 class="text-5xl font-bold mb-4">
+                    <span class="staggered-text">Xin</span>
+                    <span class="staggered-text">chào,</span>
+                    <span class="staggered-text">tôi</span>
+                    <span class="staggered-text">là</span>
+                    <span class="staggered-text">Thái</span>
+                </h1>
+                <p class="text-lg text-white-600 mb-6 leading-relaxed">
+                    Một nhà thiết kế & lập trình viên sáng tạo, đam mê tạo ra những sản phẩm đẹp mắt và hiệu quả.
+                </p>
+                <a href="#contact" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700">Liên hệ ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-10 text-center">Giới thiệu</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-6 md:mb-0">
+                    <p class="text-lg text-white-600 leading-loose">
+                        Tôi là một người yêu thích sự sáng tạo, luôn tìm kiếm cách kết hợp nghệ thuật và công nghệ. Với hơn 5 năm kinh nghiệm trong thiết kế giao diện và phát triển web, tôi đã giúp nhiều doanh nghiệp xây dựng thương hiệu trực tuyến độc đáo.
+                    </p>
+                </div>
+                <div class="md:w-1/2 text-right">
+                    <h3 class="text-3xl font-bold text-indigo-600 transform -rotate-3 inline-block">Sáng tạo & Độc đáo</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- Skills Section -->
+     <section id="skills" class="py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-10">Kỹ năng</h2>
+            <button id="show-skills" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 mb-6">Hiển thị Kỹ năng</button>
+            <div id="skills-container" class="skills-container flex flex-wrap justify-center gap-6">
+                <span class="bubble bg-indigo-100 text-indigo-800 px-6 py-3 rounded-full text-lg">Design PCB</span>
+                <span class="bubble bg-indigo-100 text-indigo-800 px-6 py-3 rounded-full text-lg">Design CAD</span>
+                <span class="bubble bg-indigo-100 text-indigo-800 px-6 py-3 rounded-full text-lg">Flutter</span>
+                <span class="bubble bg-indigo-100 text-indigo-800 px-6 py-3 rounded-full text-lg">Full Stack</span>
+                <span class="bubble bg-indigo-100 text-indigo-800 px-6 py-3 rounded-full text-lg">Design 3D</span>
+            </div>
+        </div>
+        <script>
+            document.getElementById('show-skills').addEventListener('click', () => {
+                const skillsContainer = document.getElementById('skills-container');
+                skillsContainer.classList.toggle('active');
+            });
+        </script>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-10 text-center">Dự án</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-black">Website Thương mại</h3>
+                    <p class="text-gray-600">Thiết kế và phát triển một website bán hàng với giao diện hiện đại, tối ưu hóa giá sinh viên.</p>
+                </div>
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-black">Ứng dụng Di động</h3>
+                    <p class="text-gray-600">Phát triển ứng dụng giá sinh viên.</p>
+                </div>
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-black">DIY Công Nghệ</h3>
+                    <p class="text-gray-600">Thiết kế các sản phẩm công nghệ giá sinh viên.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-indigo-600 text-">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-10">Liên hệ</h2>
+            <p class="text-lg mb-6">Hãy gửi tin nhắn để chúng ta cùng tạo ra điều gì đó tuyệt vời!</p>
+            <a href="mailto:truongthanhquocthai2020@gmail.com" class="inline-block bg-white text-indigo-600 px-6 py-3 rounded-full hover:bg-gray-100 mb-8">Gửi Email</a>
+            <div class="flex justify-center gap-6">
+                <a href="https://youtube.com/@kienthuchayxyz?si=9Z4Ang44iGlfKEwF" target="_blank" class="social-icon">
+                    <i class="fab fa-youtube text-2xl"></i>
+                </a>
+                <a href="https://www.tiktok.com/@vatvanh247?is_from_webapp=1&sender_device=pc" target="_blank" class="social-icon">
+                    <i class="fab fa-tiktok text-2xl"></i>
+                </a>
+                <a href="https://www.facebook.com/share/18joGi2VHM/" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook text-2xl"></i>
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-gray-800 text-white text-center">
+        <p>© 2025 ThaiTruong. All rights reserved.</p>
+    </footer>
+</body>
+</html>
